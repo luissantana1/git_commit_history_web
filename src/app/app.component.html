@@ -1,0 +1,32 @@
+<div class="timeline-title">
+  <h1>Commit Timeline</h1>
+</div>
+<div class="timeline">
+  <ng-container *ngIf="githubData; else isEmpty">
+    <div class="outer">
+      <div class="card" *ngFor="let commit of githubData">
+        <div class="info">
+          <h3 class="title">Name:</h3>
+          <h3>{{commit.name}}</h3>
+          <br> 
+          <h3 class="title">Email:</h3>
+          <h3>{{commit.email}}</h3>
+          <br>
+          <h3 class="title">Date:</h3>
+          <h3 class>{{commit.date | date:"short"}}</h3>
+          <br>
+          <h3 class="title">Comment:</h3>
+          <h3>{{commit.comment}}</h3>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #isEmpty>
+    <div>
+      <h1>Internal server error</h1>
+    </div>
+  </ng-template>
+</div>
+<div class="timeline-title">
+  <h1>Last commit to the repo</h1>
+</div>
